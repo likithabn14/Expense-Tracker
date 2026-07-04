@@ -5,9 +5,7 @@ Personal Expense Tracker is a web application developed using Flask, Pandas, HTM
 
 The application is simple to use and runs completely on the user's computer without requiring any database.
 
-🎯 Objective
-
-The main objective of this project is to help users manage their daily expenses in a simple and organized way. Instead of maintaining expense records manually, users can enter expenses into the application and instantly view summaries such as total spending, highest expense, lowest expense, average expense, top spending category, and total transactions.
+Demo Link 
 
 ❗ Problem Statement
 
@@ -31,19 +29,7 @@ Pandas
 HTML5
 CSS3
 Bootstrap 5
-📂 Project Structure
-Expense-Tracker/
-│
-├── app.py
-├── expenses.csv
-├── requirements.txt
-│
-├── static/
-│   └── style.css
-│
-└── templates/
-    ├── index.html
-    └── edit.html
+
 ⚙️ How It Works
 Open the application.
 Enter the expense details.
@@ -76,16 +62,7 @@ Data Filtering
 Grouping and Aggregation
 Bootstrap Components
 Responsive Web Design
-🚀 Future Improvements
-Monthly and yearly expense reports
-User authentication
-Database integration
-Expense charts and graphs
-Budget planning and notifications
-Export reports in PDF format
-📷 Screenshots
 
-Add screenshots of the application here after deployment.
 
 👩‍💻 Author
 
