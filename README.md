@@ -1,4 +1,4 @@
-Tracker
+
 📌 Overview
 
 Personal Expense Tracker is a web application developed using Flask, Pandas, HTML, CSS, and Bootstrap. It helps users record their daily expenses, organize them by category, and view useful spending summaries through an interactive dashboard.
