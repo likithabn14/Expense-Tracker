@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Expense</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <div class="card p-4">
+
+        <h2 class="text-center mb-4">
+
+            ✏️ Edit Expense
+
+        </h2>
+
+        <form method="POST">
+
+            <div class="row">
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        name="date"
+                        value="{{ expense.Date }}"
+                        class="form-control"
+                        required>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        name="amount"
+                        value="{{ expense.Amount }}"
+                        class="form-control"
+                        min="1"
+                        required>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Category</label>
+
+                    <select
+                        id="category"
+                        name="category"
+                        class="form-select"
+                        onchange="toggleCategory()">
+
+                        <option {% if expense.Category=="Food" %}selected{% endif %}>Food</option>
+
+                        <option {% if expense.Category=="Travel" %}selected{% endif %}>Travel</option>
+
+                        <option {% if expense.Category=="Shopping" %}selected{% endif %}>Shopping</option>
+
+                        <option {% if expense.Category=="Entertainment" %}selected{% endif %}>Entertainment</option>
+
+                        <option {% if expense.Category=="Bills" %}selected{% endif %}>Bills</option>
+
+                        <option {% if expense.Category=="Education" %}selected{% endif %}>Education</option>
+
+                        <option {% if expense.Category=="Healthcare" %}selected{% endif %}>Healthcare</option>
+
+                        <option {% if expense.Category not in ['Food','Travel','Shopping','Entertainment','Bills','Education','Healthcare'] %}selected{% endif %}>Other</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Description</label>
+
+                    <input
+                        type="text"
+                        name="description"
+                        value="{{ expense.Description }}"
+                        class="form-control"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div
+                class="row mb-3"
+                id="customCategoryDiv"
+                {% if expense.Category in ['Food','Travel','Shopping','Entertainment','Bills','Education','Healthcare'] %}
+                style="display:none;"
+                {% endif %}>
+
+                <div class="col-md-6">
+
+                    <label>Custom Category</label>
+
+                    <input
+                        type="text"
+                        name="custom_category"
+                        value="{% if expense.Category not in ['Food','Travel','Shopping','Entertainment','Bills','Education','Healthcare'] %}{{ expense.Category }}{% endif %}"
+                        class="form-control">
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn btn-success">
+
+                Update Expense
+
+            </button>
+
+            <a
+                href="/"
+                class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleCategory(){
+
+let category=document.getElementById("category").value;
+
+let custom=document.getElementById("customCategoryDiv");
+
+if(category==="Other"){
+
+custom.style.display="flex";
+
+}
+
+else{
+
+custom.style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
